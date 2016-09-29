@@ -12,10 +12,19 @@
     <style>
     body{
     	font-family: "微软雅黑";
+    	background-color: #e7ecef;
+    }
+    .container{
+    	width: 1300px;
+    }
+    .main{
+    	background-color: #FFFFFF;
+    	padding:20px 60px;
     }
     	.jumbotron{
     		background-color: #5E4485;
     		color: white;
+    		margin-bottom: 10px;
     	}
     	.jumbotron p{
     		color:#cdbfe3
@@ -48,14 +57,21 @@
     		margin-left: 30px;
     		font-size: 14px;
     	}
-    	.picMarquee-left{ overflow:hidden; position:relative;}
-		.picMarquee-left .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
-		.picMarquee-left .bd{ padding:10px;   }
+    	
 		.picMarquee-left .bd ul{ overflow:hidden; zoom:1; }
 		.picMarquee-left .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
-		.picMarquee-left .bd ul li .pic{ text-align:center; }
-		.picMarquee-left .bd ul li .pic a:hover img{ border-color:#999;  }
-		.picMarquee-left .bd ul li .title{ line-height:24px;   }
+		
+		.txtMarquee-top{  overflow:hidden; position:relative;  border:1px solid #ccc;   }
+		.txtMarquee-top .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+		.txtMarquee-top .hd .prev,.txtMarquee-top .hd .next{ display:block;  width:9px; height:5px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+		cursor:pointer; background:url("img/arrow.png") 0 -100px no-repeat;}
+		.txtMarquee-top .hd .next{ background-position:0 -140px;  }
+		.txtMarquee-top .hd .prevStop{ background-position:-60px -100px;  }
+		.txtMarquee-top .hd .nextStop{ background-position:-60px -140px;  }
+		.txtMarquee-top .bd{ padding:15px;  }
+		.txtMarquee-top .infoList li{ height:24px; line-height:24px;   }
+		.txtMarquee-top .infoList li .date{ float:right; color:#999;  }
+
 
     </style>
   </head>
@@ -90,7 +106,35 @@
 		  </div>
 		</div>
 		
-		<div class="container">
+		<div class="container main">
+			<h3>codingx新闻<small class="offset50">火爆资讯，就在codingx！</small></h3>
+			<div class="txtMarquee-top">
+			<div class="hd">
+				<a class="next"></a>
+				<a class="prev"></a>
+			</div>
+			<div class="bd">
+				<ul class="infoList">
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">中国打破了世界软件巨头规则</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">口语：会说中文就能说英语！</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学英语送ipad2,45天突破听说</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学外语，上北外！</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">那些无法理解的荒唐事</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">中国打破了世界软件巨头规则</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">口语：会说中文就能说英语！</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">数理化老师竟也看学习资料？</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学英语送ipad2,45天突破听说</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">学外语，上北外！</a></li>
+					<li><span class="date">2011-11-11</span><a href="http://www.SuperSlide2.com" target="_blank">那些无法理解的荒唐事</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+			
 			<h3>优雅学习环境<small class="offset50">大湖名城，创新高地</small></h3>
 			<br />
 			<div class="picMarquee-left">
@@ -192,6 +236,7 @@
 		</div>
 		<script type="text/javascript">
 		jQuery(".picMarquee-left").slide({mainCell:".bd ul",autoPlay:true,effect:"leftMarquee",vis:4,interTime:25,opp:true,easing:"swing"});
+		jQuery(".txtMarquee-top").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",vis:12,interTime:50});
 		</script>
 
   </body>
