@@ -31,7 +31,12 @@
 					title: {
 						text: '还款递减图'
 					},
-					tooltip: {},
+					 tooltip: {
+				        trigger: 'axis',
+				        axisPointer: {
+				            type: 'shadow'
+				        }
+				    },
 					legend: {
 						data: ['本息']
 					},
