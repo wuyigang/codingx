@@ -19,14 +19,10 @@
 					iconsPrefix:"glyphicon glyphicon-music",
 					showToggle:true,
 					showRefresh:true,
-					detailView:true,
-					detailFormatter:function(index, row, element) {
-						return "期数："+row.id+"，本息："+row.total+"，利息："+row.lx+"，本金"+row.bj;
-					},
 					columns: [{
 						field: 'id',
 						title: '期数',
-//						class:'success'
+						class:'success'
 					}, {
 						field: 'dt',
 						title: '月份',
