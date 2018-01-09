@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -8,41 +9,63 @@
 		<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/bootstrap-table-dist/bootstrap-table.min.js"></script>
-		<script type="text/javascript" src="assets/bootstrap-table-dist/locale/bootstrap-table-zh-CN.js" ></script>
+		<script type="text/javascript" src="assets/bootstrap-table-dist/locale/bootstrap-table-zh-CN.js"></script>
 		<script>
 			$(function() {
 				$('#table').bootstrapTable({
 					url: 'assets/data/data.json',
 					pagination: true,
+					pageList:[12,24,36,48,60,72,360],
 					pageSize: 12,
-					search:true,
-					iconsPrefix:"glyphicon glyphicon-music",
-					showToggle:true,
-					showRefresh:true,
+					search: true,
+					iconsPrefix: "glyphicon glyphicon-music",
+					showToggle: true,
+					showRefresh: true,
+					rowStyle: function(row, index) {
+						var now = new Date();
+						var nstr = now.getFullYear() + "-" + (now.getMonth()+1);
+						if(row.dt < nstr) {
+							return {
+								classes: 'success',
+								css: {
+									"color": "gray",
+								}
+							}
+						}else if(row.dt == nstr){
+								return {
+								classes: 'active',
+								css: {
+									"color": "blue",
+									"font-size":"16px"
+								}
+							}
+						}else{
+							return row;
+						}
+					},
 					columns: [{
 						field: 'id',
 						title: '期数',
-						class:'success'
 					}, {
 						field: 'dt',
 						title: '月份',
-//						class:'success'
-					},{
+						//						class:'success'
+					}, {
 						field: 'total',
 						title: '本息',
-//						class:'warning'
+						//						class:'warning'
 					}, {
 						field: 'lx',
 						title: '利息',
-//						class:'danger'
+						//						class:'danger'
 					}, {
 						field: 'bj',
 						title: '本金',
-//						class:'info'
+						//						class:'info'
 					}, {
 						field: 'lft',
 						title: '剩余本金',
-//						class:'active',
+						//						class:'active',
 					}]
 				});
 			});
@@ -52,7 +75,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1>笨笨和小咪的房贷</h1>
+				<h1>笨笨和小咪的房贷</h1>
 			</div>
 			<table id="table"></table>
 		</div>
