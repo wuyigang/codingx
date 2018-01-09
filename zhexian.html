@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta charset="utf-8">
+		<!-- 引入 ECharts 文件 -->
+		<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" ></script>
+		<script src="assets/js/echarts.min.js"></script>
+	</head>
+
+	<body>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="width: 100%;height:700px;"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('main'));
+
+			$.get('assets/data/data.json').done(function(data) {
+				
+				var xdata = new Array();
+				var ydataben = new Array();
+				var ydataxi = new Array();
+				$.each(data, function(i,n) {
+					xdata.push(n.dt);
+					ydataben.push(n.bj);
+					ydataxi.push(n.lx);
+				});
+				
+				myChart.setOption({
+					title: {
+						text: '还款递减图'
+					},
+					tooltip: {},
+					legend: {
+						data: ['本息']
+					},
+					xAxis: {
+						data: xdata
+					},
+					yAxis: {},
+					series: [{
+						name: '本金',
+						type: 'bar',
+						data: ydataben,
+						stack: '本息',
+					},{
+						name: '利息',
+						type: 'bar',
+						data: ydataxi,
+						stack: '本息'
+					}]
+				});
+			});
+		</script>
+	</body>
+
+</html>
