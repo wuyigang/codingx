@@ -5,13 +5,25 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta charset="utf-8">
-		<!-- 引入 ECharts 文件 -->
+		<link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
 		<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js" ></script>
 		<script src="assets/js/echarts.min.js"></script>
 	</head>
 
 	<body>
-		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container-fluid"> 
+		    <div class="navbar-header">
+		        <a class="navbar-brand" href="#">笨笨和小咪的房贷</a>
+		    </div>
+		    <div>
+		        <ul class="nav navbar-nav">
+		            <li><a href="index.html">表格</a></li>
+		            <li class="active"><a href="zhexian.html">折线图</a></li>
+		        </ul>
+		    </div>
+			</div>
+		</nav>
 		<div id="main" style="width: 100%;height:700px;"></div>
 		<script type="text/javascript">
 			var myChart = echarts.init(document.getElementById('main'));
@@ -38,7 +50,7 @@
 				        }
 				    },
 					legend: {
-						data: ['本息']
+						data: ['本金','利息']
 					},
 					xAxis: {
 						data: xdata
