@@ -15,7 +15,7 @@
 				$('#table').bootstrapTable({
 					url: 'assets/data/data.json',
 					pagination: true,
-					pageList:[12,24,36,48,60,72,360],
+					pageList: [12, 24, 36, 48, 60, 72, 360],
 					pageSize: 12,
 					search: true,
 					iconsPrefix: "glyphicon glyphicon-music",
@@ -23,23 +23,26 @@
 					showRefresh: true,
 					rowStyle: function(row, index) {
 						var now = new Date();
-						var nstr = now.getFullYear() + "-" + (now.getMonth()+1);
-						if(row.dt < nstr) {
-							return {
-								classes: 'success',
-								css: {
-									"color": "gray",
-								}
-							}
-						}else if(row.dt == nstr){
+						var nstr = now.getFullYear() + "-" + (now.getMonth() + 1);
+						if(row.dt <= nstr) {
+							if(row.dt == nstr) {
 								return {
-								classes: 'active',
-								css: {
-									"color": "blue",
-									"font-size":"16px"
+									classes: 'active',
+									css: {
+										"color": "blue",
+										"font-size": "16px"
+									}
+								}
+							} else {
+								return {
+									classes: 'success',
+									css: {
+										"color": "gray",
+									}
 								}
 							}
-						}else{
+
+						} else {
 							return row;
 						}
 					},
